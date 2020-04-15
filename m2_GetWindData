@@ -134,7 +134,7 @@ def GetGreeks(us_code, date):
         data.loc[i,"iv"] = v
         data.loc[i,"delta"] = OptionDelta(OptionType, S, X, T, R, v, d)
 
-        #前人的模板上，这里的S就不用隐含的F贴现了，于是我就继续这么算（然而也不知道为什么）
+        #前人的模板上，这里的S就不用隐含的F贴现了，于是我就继续这么算（这样和别人可以对上）
         data.loc[i,"gamma"] = OptionGamma(OptionType, underlying_settlement, X, T, R, v, d)
         data.loc[i,"vega"]= OptionVega(OptionType, underlying_settlement, X, T, R, v, d)
         data.loc[i,"theta"] = OptionTheta(OptionType, underlying_settlement, X, T, R, v, d)
